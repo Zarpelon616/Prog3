@@ -9,6 +9,8 @@ do
     Console.WriteLine("*******************************************");
     Console.WriteLine("");
     Console.WriteLine("1 - Clientes");
+    Console.WriteLine("2 - Animals");
+    Console.WriteLine("3 - Veterinario");
 
     option = Convert.ToInt32( Console.ReadLine() );
 
@@ -24,6 +26,11 @@ do
         Console.WriteLine("OPÇÃO ANIMAIS");
         AnimalView animalView = new AnimalView();
         break;
+
+
+        case 3 :
+        Console.WriteLine("OPÇÃO VETERINARIO");
+        VeterinarioView veterinarioView = new VeterinarioView();
     }
 }
 while( option > 0); //enquanto option for maior que zero
