@@ -90,7 +90,7 @@ namespace Arquivos.Views
             client.FirstName = Console.ReadLine();
 
             Console.WriteLine("Informe o sobrenome");
-            client.FirstName = Console.ReadLine();
+            client.LastName = Console.ReadLine();
             
             Console.WriteLine("Informe o email");
             client.Email = Console.ReadLine();
