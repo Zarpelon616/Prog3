@@ -31,6 +31,7 @@ do
         case 3 :
         Console.WriteLine("OPÇÃO VETERINARIO");
         VeterinarioView veterinarioView = new VeterinarioView();
+        break;
     }
 }
 while( option > 0); //enquanto option for maior que zero
