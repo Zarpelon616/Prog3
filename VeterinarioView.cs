@@ -10,10 +10,10 @@ namespace Arquivos.Views
 {
     public class VeterinarioView
     {
-        private VeterinarioController veterinarioController;
+        private VeterinarioController VeterinarioController;
         public VeterinarioView()
         {
-            veterinarioController = new VeterinarioController();
+            VeterinarioController = new VeterinarioController();
             this.Init();
         }
 
@@ -82,7 +82,7 @@ namespace Arquivos.Views
 
         private void Insert()
         {
-            Veterinario veterinario = new Veterinario();//Vai armazenar as imformações na lista client
+            Veterinario veterinario = new Veterinario();
 
             veterinario.ID = VeterinarioController.GetNextId();
             
@@ -90,7 +90,7 @@ namespace Arquivos.Views
             veterinario.FirstName = Console.ReadLine();
 
             Console.WriteLine("Informe o sobrenome");
-            veterinario.FirstName = Console.ReadLine();
+            veterinario.LastName = Console.ReadLine();
             
             Console.WriteLine("Informe o email");
             veterinario.Email = Console.ReadLine();
