@@ -10,10 +10,10 @@ namespace Arquivos.Views
 {
     public class AnimalView
     {
-        private AnimalController animalController;
+        private AnimalController AnimalController;
         public AnimalView()
         {
-            animalController = new AnimalController();
+            AnimalController = new AnimalController();
             this.Init();
         }
 
@@ -58,7 +58,7 @@ namespace Arquivos.Views
         private void List()
         {//listagem é a variavel
             List<Animal> listagem =
-                animalController.List();
+                AnimalController.List();
 
             for(int i = 0; i < listagem.Count; i ++)//+= e ++ são convençoes de variavel  
             {
@@ -74,7 +74,8 @@ namespace Arquivos.Views
         {
             string retorno = "";
             retorno += $"Dono: {animal.ID} \n";//\n serve pra quebrar linha que nem shift + Enter
-            retorno += $"Nome: {animal.FirstName}\n";
+            retorno += $"Nome: {animal.FirstName} \n";
+            retorno += $"Tipo de Animal: {animal.Tipo} \n";
             retorno += "-------------------------------------------\n";
 
             return retorno;
@@ -84,15 +85,18 @@ namespace Arquivos.Views
         {
             Animal animal = new Animal();//Vai armazenar as imformações na lista client
 
-            animal.ID = animalController.GetNextId();//caso o 'id'seja uma string deve colocar ToString()
+            animal.ID = AnimalController.GetNextId();//caso o 'id'seja uma string deve colocar ToString()
             
             Console.WriteLine("Informe o primeiro nome");
             animal.FirstName = Console.ReadLine();
             
             Console.WriteLine("Informe o email");
             animal.Email = Console.ReadLine();
+            
+            Console.WriteLine("Informe o tipo de animal");
+            animal.Tipo = Console.ReadLine();
 
-            bool retorno = animalController.Insert(animal);
+            bool retorno = AnimalController.Insert(animal);
 
             if( retorno )
                 Console.WriteLine("Cliente inserido com sucesso!");
