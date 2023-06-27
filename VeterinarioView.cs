@@ -27,6 +27,7 @@ namespace Arquivos.Views
             Console.WriteLine("2 - Listar médico");
             Console.WriteLine("3 - Exportar médico");
             Console.WriteLine("4 - Importar médico");
+            Console.WriteLine("5 - Pesquisar médico");
             Console.WriteLine("");
 
             int option = 0;
@@ -48,6 +49,10 @@ namespace Arquivos.Views
 
                 case 4 :
                     Import();
+                break;
+
+                case 5 :
+                    SearchByName();
                 break;
 
                 default:
@@ -122,6 +127,20 @@ namespace Arquivos.Views
                 Console.WriteLine("Dasos imporados com sucesso!");
             else
                 Console.WriteLine("DEU ERRO.");
+        }
+
+                private void SearchByName()
+        {
+            Console.WriteLine("Pesquisar Cliente pelo nome");
+            Console.WriteLine("Digite o nome:");
+            string name = Console.ReadLine();  
+
+            
+            foreach( Veterinario c in VeterinarioController.SearchByName(name) )
+            {
+                Console.WriteLine( c.ToString() );
+            }
+
         }
     }
 }
