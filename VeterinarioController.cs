@@ -98,9 +98,23 @@ namespace Arquivos.Controllers
                 return false;
             }
 
+        }
 
-            
+        public List<Veterinario> SearchByName(string name) //Procura pelo nome
+        {
+            if ( string.IsNullOrEmpty(name) || string.IsNullOrWhiteSpace(name) ) //Vai checar que se esta vazio
+            return null;
 
+            List<Veterinario> veterinarios = new List<Veterinario>();
+            for(int i = 0; i < DataSet.Veterinarios.Count; i++)
+            {
+                var c = DataSet.Veterinarios[i]; //Percorre os elementos da lista e os coloca na variavel c
+                if( c.FullName.ToLower().Contains(name.ToLower()) ) //Tolower faz com que independente do maiusculo ou minusculo a busca funcione igual
+                {
+                    veterinarios.Add(c);
+                }
+            }
+            return veterinarios;
         }
 
         public int GetNextId() //int retorna um inteiro e GetNextId tras o proximo o id
