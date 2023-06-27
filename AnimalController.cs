@@ -13,19 +13,19 @@ namespace Arquivos.Controllers
         private string directoryName = "ReportFiles";
         private string fileName = "Animal.txt";
 
-        public List<Animal> List()//vai trazer uma lista Animal
+        public List<Animal> List()
         {
             return DataSet.Animals;
         }
 
 
         //Bool é boleano
-        public bool Insert(Animal animal)//
+        public bool Insert(Animal animal)
         {
             if( animal == null)
                 return false;
 
-            if( string.IsNullOrWhiteSpace(animal.FirstName) )//IsNullOsWhiteSpace é quando esta vazio
+            if( string.IsNullOrWhiteSpace(animal.FirstName) )
                 return false;
             
             DataSet.Animals.Add(animal);
@@ -35,11 +35,11 @@ namespace Arquivos.Controllers
 
          public bool ExportToTextFile()
         {
-            if(!Directory.Exists(directoryName))//o ! = not faz ele retornar falso se não existir
+            if(!Directory.Exists(directoryName))
              Directory.CreateDirectory(directoryName);
             
             string fileContent = string.Empty;
-            foreach(Animal c in DataSet.Animals)// pega os clientes do dataset com a variavel c
+            foreach(Animal c in DataSet.Animals)
             {
                 fileContent +=$"{c.ID};{c.FirstName};{c.Email};{c.Tipo}";
                 fileContent += "\n";
@@ -52,7 +52,7 @@ namespace Arquivos.Controllers
             sw.Write(fileContent);
             sw.Close();
         }
-        catch(IOException ioEx)//caso ocorra algum erro dentro desso processo vai agir
+        catch(IOException ioEx)
         {
             Console.WriteLine("Erro ao manipular o arquivo.");
             Console.WriteLine(ioEx.Message);
@@ -70,18 +70,18 @@ namespace Arquivos.Controllers
 
                 string line = string.Empty;
                 line = sr.ReadLine();
-                while(line != null)//!= significa 'diferente'//significa enquanto line for diferente de null ele segue em frente
+                while(line != null)
                 {
                     Animal animal = new Animal();
-                    string[] animalData = line.Split(';');//cria um vetor de string usando[]//o Split que o line//usa aspas simples para caracteres 
-                    animal.ID = Convert.ToInt32( animalData[0] );//o [] é usado para determinar a string
+                    string[] animalData = line.Split(';');
+                    animal.ID = Convert.ToInt32( animalData[0] );
                     animal.FirstName = animalData[1];
                     animal.Email = animalData[2];
                     animal.Tipo = animalData[3];
 
                     DataSet.Animals.Add(animal);
 
-                    line = sr.ReadLine(); //Vai fazer ele ler cada linha            
+                    line = sr.ReadLine();             
                 }
 
                 return true;
@@ -89,7 +89,7 @@ namespace Arquivos.Controllers
             catch(Exception ex)//ex é exeption
             {
                 Console.WriteLine("Oooops. Ocorreu um erro ao tentar importar os dados!");
-                Console.WriteLine(ex.Message);//ex.Message vai emviar uma mensagem
+                Console.WriteLine(ex.Message);
                 return false;
             }
 
@@ -99,7 +99,7 @@ namespace Arquivos.Controllers
         }
 
        
-        public int GetNextId() //int retorna um inteiro e GetNextId tras o proximo o id
+        public int GetNextId() 
         {
             int tam = DataSet.Animals.Count;
             if( tam > 0 )
