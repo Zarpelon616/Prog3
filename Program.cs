@@ -11,6 +11,7 @@ do
     Console.WriteLine("1 - Clientes");
     Console.WriteLine("2 - Animals");
     Console.WriteLine("3 - Veterinario");
+    Console.WriteLine("4 - Clinicas");
 
     option = Convert.ToInt32( Console.ReadLine() );
 
@@ -31,6 +32,12 @@ do
         case 3 :
         Console.WriteLine("OPÇÃO VETERINARIO");
         VeterinarioView veterinarioView = new VeterinarioView();
+        break;
+        
+        
+        case 4 :
+        Console.WriteLine("OPÇÃO CLINICAS");
+        ClinicaView clinicaView = new ClinicaView();
         break;
     }
 }
