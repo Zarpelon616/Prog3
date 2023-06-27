@@ -33,5 +33,13 @@ namespace Arquivos.Model
             CPF = cPF;
             Email = email;
         }
+
+        public string FullName => $"{this.FirstName} {this.LastName}";
+
+        public override string ToString()
+        {
+            return $"id: {this.ID}; Name: {this.FullName}";
+        }
+
     }
 }
