@@ -40,5 +40,13 @@ namespace Arquivos.Model
             CPF = cPF;
             Email = email;
         }//Fim do Escopo deste método
+
+        public string FullName => $"{this.FirstName} {this.LastName}";//atirbuto com chamada funcional com nome e sobrenome
+
+        public override string ToString()
+        {
+            return $"id: {this.ID}; Name: {this.FullName}";
+        }
+
     }//Fim do Escopo da Classe
 }//Fim do Escopo do Namespace
