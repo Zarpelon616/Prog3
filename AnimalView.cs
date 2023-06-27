@@ -54,26 +54,25 @@ namespace Arquivos.Views
                 break;
             }
         }
-        //Void é quando o método é vazio ele não da retorno o retorno é vazio
+        
         private void List()
-        {//listagem é a variavel
+        {
             List<Animal> listagem =
                 AnimalController.List();
 
             for(int i = 0; i < listagem.Count; i ++)//+= e ++ são convençoes de variavel  
             {
                 Console.WriteLine( Print(listagem[i]) );
-            }//contador, acumulador e flag são metodos 
-            //tembem poderia ser var cliente = listagem[i];
-            //                       Print(cliente);
+            }
+            
 
 
         }
 
-        private string Print(Animal animal)//Vai imprimir os valores
+        private string Print(Animal animal)
         {
             string retorno = "";
-            retorno += $"Dono: {animal.ID} \n";//\n serve pra quebrar linha que nem shift + Enter
+            retorno += $"Dono: {animal.ID} \n";
             retorno += $"Nome: {animal.FirstName} \n";
             retorno += $"Tipo de Animal: {animal.Tipo} \n";
             retorno += "-------------------------------------------\n";
@@ -83,9 +82,9 @@ namespace Arquivos.Views
 
         private void Insert()
         {
-            Animal animal = new Animal();//Vai armazenar as imformações na lista client
+            Animal animal = new Animal();
 
-            animal.ID = AnimalController.GetNextId();//caso o 'id'seja uma string deve colocar ToString()
+            animal.ID = AnimalController.GetNextId();
             
             Console.WriteLine("Informe o primeiro nome");
             animal.FirstName = Console.ReadLine();
